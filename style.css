@@ -1,0 +1,186 @@
+/* ---------- Palette & type tokens ---------- */
+:root {
+  --ink: #14213d;      /* headings, navbar */
+  --teal: #0f8b8d;     /* primary accent */
+  --amber: #f2b84b;    /* highlight / hover */
+  --paper: #f3f6f8;    /* page background */
+  --white: #ffffff;    /* cards */
+  --muted: #4a5568;    /* body text */
+  --heading-font: "Space Grotesk", "Segoe UI", sans-serif;
+  --body-font: "Source Serif 4", Georgia, serif;
+}
+
+/* ---------- Element selectors ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--muted);
+  font-family: var(--body-font);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: var(--heading-font);
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--amber);
+  display: inline-block;
+}
+
+a { color: var(--teal); }
+a:hover { color: var(--ink); }
+
+section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem;
+}
+
+/* ---------- Navigation bar (flexbox + sticky) ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 2rem;
+  background: var(--ink);
+}
+
+.brand {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-family: var(--heading-font);
+  font-size: 0.95rem;
+  color: var(--white);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* ---------- Hero (flexbox) ---------- */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 5rem;
+}
+
+#hero h1 { font-size: 2.8rem; margin: 0 0 0.5rem; }
+
+.tagline { font-size: 1.25rem; margin: 0 0 1.5rem; }
+
+.avatar {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid var(--teal);
+  background: var(--white);
+}
+
+/* ---------- Buttons (class selectors) ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.3rem;
+  margin-right: 0.5rem;
+  font-family: var(--heading-font);
+  font-weight: 500;
+  color: var(--white);
+  background: var(--teal);
+  border: 2px solid var(--teal);
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn:hover { background: var(--ink); border-color: var(--ink); color: var(--white); }
+
+.btn-outline { background: transparent; color: var(--teal); }
+
+/* ---------- Cards (CSS grid) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--white);
+  padding: 1.25rem 1.5rem;
+  border-left: 5px solid var(--teal);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(20, 33, 61, 0.08);
+}
+
+.card h3 { margin: 0 0 0.4rem; font-size: 1.2rem; }
+.card p { margin: 0; }
+
+/* ---------- Education timeline ---------- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.5rem;
+  border-left: 3px solid var(--teal);
+}
+
+.timeline li { margin-bottom: 1.5rem; }
+
+.year {
+  display: block;
+  font-family: var(--heading-font);
+  font-size: 0.9rem;
+  color: var(--teal);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.footer p { margin: 0; }
+
+/* ---------- Keyboard focus ---------- */
+a:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+  .navbar { flex-direction: column; gap: 0.6rem; }
+  .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  #hero { flex-direction: column-reverse; text-align: center; }
+  #hero h1 { font-size: 2.2rem; }
+}
